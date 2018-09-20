@@ -25,13 +25,19 @@ android {
             abiFilters "armeabi", "armeabi-v7a","x86"
         }
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+
     }
     signingConfigs {
         config {
-            storeFile file('../rayhahah.keystore')
-            storePassword '19940531coding'
-            keyAlias "rayhahah"
-            keyPassword '19940531coding'
+            storeFile file('../doc/wedo.jks')
+            storePassword 'wedo2017'
+            keyAlias "wedo"
+            keyPassword 'wedo2017'
         }
     }
     buildTypes {
@@ -115,7 +121,7 @@ android {
 
     //增加编译内存到4g
     dexOptions{
-        incremental true
+        incremental false
         javaMaxHeapSize "4g"
     }
 
@@ -141,43 +147,44 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile(name: 'hotfix_core-release-3.1.0', ext: 'aar')
-    compile(name: 'LiteAVSDK_Smart_3.3.1655', ext: 'aar')
-    //    compile(project(path: ':rbase')) {
+    implementation(name: 'hotfix_core-release-3.1.0', ext: 'aar')
+    implementation(name: 'LiteAVSDK_Smart_3.3.1655', ext: 'aar')
+    //    implementation(project(path: ':rbase')) {
     //        exclude group: 'com.squareup.okhttp3'
     //        exclude module: 'okio'
     //        exclude module: 'gson'
     //    }
-    compile project(path: ':rbase')
-    compile project(path: ':rvideoplayer')
-    compile project(path: ':dialoglib')
+    implementation project(path: ':rbase')
+    implementation project(path: ':rvideoplayer')
+    implementation project(path: ':dialoglib')
     //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
-    compile files('libs/MobCommons-2017.0608.1618.jar')
-    compile files('libs/MobTools-2017.0608.1618.jar')
-    compile files('libs/ShareSDK-Core-3.0.0.jar')
-    compile files('libs/ShareSDK-QQ-3.0.0.jar')
-    compile files('libs/ShareSDK-QZone-3.0.0.jar')
-    compile files('libs/ShareSDK-SinaWeibo-3.0.0.jar')
-    compile files('libs/ShareSDK-Wechat-3.0.0.jar')
-    compile files('libs/ShareSDK-Wechat-Core-3.0.0.jar')
-    compile files('libs/ShareSDK-Wechat-Moments-3.0.0.jar')
-    compile files('libs/zxing.jar')
-    compile files('libs/alicloud-android-utils-1.0.3.jar')
-    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
+    implementation files('libs/MobCommons-2017.0608.1618.jar')
+    implementation files('libs/MobTools-2017.0608.1618.jar')
+    implementation files('libs/ShareSDK-Core-3.0.0.jar')
+    implementation files('libs/ShareSDK-QQ-3.0.0.jar')
+    implementation files('libs/ShareSDK-QZone-3.0.0.jar')
+    implementation files('libs/ShareSDK-SinaWeibo-3.0.0.jar')
+    implementation files('libs/ShareSDK-Wechat-3.0.0.jar')
+    implementation files('libs/ShareSDK-Wechat-Core-3.0.0.jar')
+    implementation files('libs/ShareSDK-Wechat-Moments-3.0.0.jar')
+    implementation files('libs/zxing.jar')
+    implementation files('libs/alicloud-android-utils-1.0.3.jar')
+    implementation files('libs/utdid4all-1.1.5.3_proguard.jar')
     //    阿里云热修复远程依赖失败
-    //    compile 'com.aliyun.ams:alicloud-android-hotfix:3.1.0'
-    compile 'com.tencent.sonic:sdk:2.0.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:multidex:1.0.2'
-    compile 'org.greenrobot:greendao:3.2.2'
+    //    implementation 'com.aliyun.ams:alicloud-android-hotfix:3.1.0'
+    implementation 'com.tencent.sonic:sdk:2.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:multidex:1.0.2'
+    implementation 'org.greenrobot:greendao:3.2.2'
     // add library
     //    腾讯buglySDK
-    compile 'com.tencent.bugly:crashreport:2.6.6'
+    implementation 'com.tencent.bugly:crashreport:2.6.6'
     //    腾讯buglyNDK
-    compile 'com.tencent.bugly:nativecrashreport:3.3.1'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.tencent.bugly:nativecrashreport:3.3.1'
+    testImplementation 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife:7.0.1'
 }
