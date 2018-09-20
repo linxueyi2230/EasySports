@@ -1,11 +1,11 @@
 ext {
 
     //support
-    compileSdkVersion = 26
-    minSdkVersion = 21
-    targetSdkVersion = 26
-    buildToolsVersion = '26.0.2'
-    supportLibVersion = "26.0.1"
+    compileSdkVersion = 27
+    minSdkVersion = 17
+    targetSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+    supportLibVersion = "27.1.1"
 
     //http
     retrofitLibVersion = "2.3.0"
